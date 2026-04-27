@@ -1,3 +1,4 @@
+
 using Unity.Collections;
 using UnityEditor.Timeline;
 using UnityEngine;
@@ -9,10 +10,15 @@ public class Character : MonoBehaviour
     public Map map;
 
     public int characterSize;
+
+    bool canMove = true;
     
     int gridX = 0;
     int gridY = 0;
     int gridZ = 0;
+
+    Vector3 touchStart;
+    Vector3 touchEnd;
 
     Vector3 findMovePosition(int[] moveInfor)
     {
@@ -48,11 +54,72 @@ public class Character : MonoBehaviour
     public void CharacterMove(int[] moveInfor)
     {
         transform.position = findMovePosition(moveInfor);
+        canMove = true;
     }
 
-    void Start()
+    private void CalVector(Vector2 end_start)
     {
-        int[] move = new int[] {1,0,0};
-        CharacterMove(move);
+        float acTan = Mathf.Atan2(end_start.y, end_start.x)* Mathf.Rad2Deg;
+        Debug.Log(acTan);
+        int[] returnArr = new int[3]{0,0,0};
+        if(acTan>0 && acTan <= 60)
+        {
+            returnArr[0] = 1;
+        }
+        else if(acTan>60 && acTan <= 120)
+        {
+            returnArr[1] = 1;
+        }
+        else if(acTan>120 && acTan <= 180)
+        {
+            returnArr[2] = 1;
+        }
+        else if(acTan> (-180) && acTan <= (-120))
+        {
+            returnArr[0] = -1;
+        }
+        else if(acTan>(-120) && acTan <= (-60))
+        {
+            returnArr[1] = -1;
+        }
+        else if(acTan>(-60) && acTan <= 0)
+        {
+            returnArr[2] = -1;
+        }
+        CharacterMove(returnArr);
+        
     }
+    void Update()
+    {
+        
+        if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)) && canMove)
+    {
+        // 터치 입력 처리
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began) touchStart = touch.position;
+            if (touch.phase == TouchPhase.Ended) 
+            {
+                touchEnd = touch.position;
+                CalVector(touchEnd - touchStart);
+            }
+        }
+        // 마우스 입력 처리 (테스트용)
+        else if (Input.GetMouseButtonDown(0))
+        {
+            touchStart = Input.mousePosition;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            touchEnd = Input.mousePosition;
+            CalVector(touchEnd - touchStart);
+        }
+    }
+
+        
+
+
+    }
+
 }

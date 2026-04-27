@@ -643,7 +643,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   obstaclePrefab: {fileID: 1679146628140497561, guid: 0a4f91ee0a7d026498d6fe21a27b4a72, type: 3}
   spearPrefab: {fileID: 0}
-  spawnManager: {fileID: 0}
 --- !u!4 &1838009306
 Transform:
   m_ObjectHideFlags: 0
