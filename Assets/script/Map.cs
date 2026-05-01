@@ -9,6 +9,7 @@ public class Map : MonoBehaviour
     public bool[] mapData;
 
     public GridManager obstacleData;
+    public GridManager coinData;
 
     public SpawnManager spawnManager;
 
@@ -21,6 +22,11 @@ public class Map : MonoBehaviour
             mapData[row.columns[0] + row.columns[1]*mapXSize + row.columns[2]*mapXSize*mapYSize] = true;
             spawnManager.spawnObstacle(row);
           
+        }
+
+        foreach(RowData row in coinData.rows)
+        {
+            spawnManager.spawnCoin(row);
         }
         
 
