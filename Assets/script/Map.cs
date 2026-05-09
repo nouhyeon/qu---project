@@ -5,6 +5,8 @@ public class Map : MonoBehaviour
     public int mapXSize;
     public int mapYSize;
     public int mapZSize;
+
+    public Vector3 endPoint;
     
     public bool[] mapData;
 
