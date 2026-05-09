@@ -65,11 +65,6 @@ public class Character : MonoBehaviour
             return;
         }
         Vector3 targetPos = findMovePosition(moveInfor);
-        if(targetPos == transform.position)
-        {
-            return;
-        }
-        ++gameManager.count;
         StartCoroutine(SmoothMove(targetPos));
     }
 
@@ -153,19 +148,6 @@ public class Character : MonoBehaviour
             gameManager.coin++;
             Destroy(other.gameObject);
         }
-    }
-
-    void CheakEndPoint(Vector3 characterPoint)
-    {
-        if(transform.position == map.endPoint)
-        {
-                StageClear();
-        }
-    }
-
-    void StageClear()
-    {
-        gameManager.clear = true;
     }
 
 }
