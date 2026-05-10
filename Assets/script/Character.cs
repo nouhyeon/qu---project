@@ -64,7 +64,14 @@ public class Character : MonoBehaviour
         {
             return;
         }
+
         Vector3 targetPos = findMovePosition(moveInfor);
+
+        if (transform.position == targetPos)
+        {
+            return;
+        }
+        gameManager.count++;
         StartCoroutine(SmoothMove(targetPos));
     }
 

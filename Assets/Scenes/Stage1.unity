@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 312708396}
   - component: {fileID: 312708395}
   - component: {fileID: 312708394}
+  - component: {fileID: 312708397}
   m_Layer: 5
   m_Name: ReStartButton
   m_TagString: Untagged
@@ -436,7 +437,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 312708395}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 312708397}
+        m_TargetAssemblyTypeName: StageSelectButton, Assembly-CSharp
+        m_MethodName: ChangeStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &312708395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +488,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312708392}
   m_CullTransparentMesh: 1
+--- !u!114 &312708397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312708392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff5974e29596d542a69729525b5d026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageSelectButton
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   count: 0
   coin: 0
+  pause: {fileID: 263114658}
 --- !u!4 &815427114
 Transform:
   m_ObjectHideFlags: 0
@@ -1337,7 +1363,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1545766918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1545766920}
+        m_TargetAssemblyTypeName: CloseButton, Assembly-CSharp
+        m_MethodName: CloseView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1545766918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1959,7 +1997,7 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 124181116}
   - {fileID: 1838009306}
-  - {fileID: 1387539241}
   - {fileID: 1970948274}
   - {fileID: 521087863}
+  - {fileID: 1387539241}
   - {fileID: 815427114}
