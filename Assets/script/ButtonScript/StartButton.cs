@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class StartButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject stageSelectView;
+    public void popStageSelect()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        stageSelectView.SetActive(true);
     }
 }
