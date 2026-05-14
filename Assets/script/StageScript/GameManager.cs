@@ -5,24 +5,17 @@ public class GameManager : MonoBehaviour
     public int count;
     public int coin;
 
-    public int sceneNum;
+    public GameObject panel;
 
-    bool clear;
-
-
-
-    public GameObject pause;
     void Start()
     {
         count = coin = 0;
-        clear = false;
     }
 
-    void Update()
-    {
+    private void Update() {
         if (Input.GetButtonDown("Cancel"))
         {
-            pause.SetActive(true);
+            panel.SetActive(true);
         }
     }
 }

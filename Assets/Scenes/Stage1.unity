@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character
   map: {fileID: 1387539242}
   characterSize: 2
-  gameManager: {fileID: 815427113}
+  gameManager: {fileID: 0}
   moveSpeed: 10
 --- !u!65 &124181113
 BoxCollider:
@@ -999,7 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 815427114}
-  - component: {fileID: 815427113}
+  - component: {fileID: 815427115}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1007,22 +1007,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &815427113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815427112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79102285fd787e46a950af002594bce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  count: 0
-  coin: 0
-  sceneNum: 1
-  pause: {fileID: 263114658}
 --- !u!4 &815427114
 Transform:
   m_ObjectHideFlags: 0
@@ -1038,6 +1022,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &815427115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815427112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135d581fea7a8a54683d5bbe499d880f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  count: 0
+  coin: 0
+  panel: {fileID: 263114658}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
