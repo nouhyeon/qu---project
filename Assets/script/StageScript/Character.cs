@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Collections;
 using UnityEditor.Timeline;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UIElements;
 
 public class Character : MonoBehaviour
@@ -14,7 +15,7 @@ public class Character : MonoBehaviour
 
     public GameManager gameManager;
 
-    bool canMove = true;
+    public bool canMove = true;
 
     bool isMoving = false;
 
@@ -71,8 +72,9 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        gameManager.count++;
+        gameManager.moveCount++;
         StartCoroutine(SmoothMove(targetPos));
+        
     }
 
     IEnumerator SmoothMove(Vector3 target)
@@ -88,6 +90,15 @@ public class Character : MonoBehaviour
         transform.position = target;
         isMoving = false;
         canMove = true;
+        gameManager.changeCountUi();
+        if(transform.position == gameManager.endPosition)
+        {
+            gameManager.Clear();
+        }
+        if(gameManager.moveCount >= gameManager.moveCount_Max)
+        {
+            gameManager.GameOver();
+        }
     }
 
     private void CalVector(Vector2 end_start)
