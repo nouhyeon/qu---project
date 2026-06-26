@@ -163,7 +163,6 @@ public class Character : MonoBehaviour
     {
         if (other.CompareTag("coin"))
         {
-            gameManager.coin++;
             Destroy(other.gameObject);
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class StageSelectButton : MonoBehaviour
 {
+    public string stageName;
     public void ChangeStage()
     {
         GameObject target = GameObject.FindWithTag("ClearPanel");
@@ -11,6 +12,7 @@ public class StageSelectButton : MonoBehaviour
         {
             target.SetActive(false);
         }
-        SceneManager.LoadScene("Stage1");
+        
+        SceneManager.LoadScene("stageName");
     }
 }

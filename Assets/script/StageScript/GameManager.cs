@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour
 
     public int moveCount_Max;
 
-    public int coin;
+    public bool[] stars;
 
     public int sGrade;
     public int aGrade;
     public int bGrade;
+    public string stageName;
 
 
     public Vector3 endPosition;
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        moveCount = coin = 0;
+        moveCount = 0;
         countController.ChangeCountTMP(moveCount, moveCount_Max);
         countController.ChangeGradeTMP(sGrade,aGrade,bGrade);
     }
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     {
         character.canMove = false;
         clearPanel.SetActive(true);
+        MapDataManager.Instance.UpdateClearResult(stageName,stars,moveCount);
     }
 
     public void GameOver()
